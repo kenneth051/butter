@@ -25,9 +25,19 @@ class UserSerializer(serializers.ModelSerializer):
         created_user = User.objects.create_user(**validated_data)
         if created_user:
             new_agreement = agreement.format(
-            created_user.first_name, created_user.last_name, created_user.street, created_user.post_code, created_user.date_joined)
+                created_user.first_name, created_user.last_name, created_user.street, created_user.post_code, created_user.date_joined)
             signed_agreement = UserTermsAgreement(
                 signed_user=created_user, signed_agreement=new_agreement)
             signed_agreement.save()
         return created_user
 
+
+class AgreementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserTermsAgreement
+        fields = (
+            "id",
+            "signed_user",
+            "signed_on",
+            "signed_agreement"
+        )
