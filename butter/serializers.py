@@ -6,6 +6,7 @@ from butter.constants import agreement
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """user serializer class"""
     password = serializers.CharField(max_length=128,
                                      min_length=8,
                                      write_only=True)
@@ -20,6 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
+        """method to create a user and sign agreement"""
         created_user = User.objects.create_user(**validated_data)
         if created_user:
             new_agreement = agreement.format(
@@ -29,11 +31,3 @@ class UserSerializer(serializers.ModelSerializer):
             signed_agreement.save()
         return created_user
 
-
-class UserTermsAgreementSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = UserTermsAgreement
-        fields = [
-            "signed_aggreement"
-        ]

@@ -1,3 +1,5 @@
+"""file to hold constants """
+
 agreement='<div style="font-size: 20px; text-align: center;">\
     <p>Some agreement template</p>\
     <p style="font-size: 15px;">\

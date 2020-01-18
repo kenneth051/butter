@@ -29,6 +29,7 @@ class UserManager(BaseUserManager):
     
     
 class User(AbstractUser):
+    """user table to hold all user data"""
     email = models.EmailField(max_length=255, unique=True, blank=False)
     username = models.EmailField(max_length=255, unique=False, blank=True)
     street = models.CharField(max_length=255, unique=True, blank=False)
@@ -59,6 +60,7 @@ class User(AbstractUser):
 
     
 class UserTermsAgreement(models.Model):
+    """user signed agreements"""
     signed_user=models.ForeignKey(User, on_delete=models.CASCADE)
     signed_on = models.DateTimeField(auto_now=True)
     signed_agreement=models.TextField()

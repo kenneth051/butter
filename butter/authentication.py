@@ -5,6 +5,7 @@ from butter_uk.settings import SECRET_KEY
 
 
 class Authentication(authentication.BaseAuthentication):
+    """user authentication class"""
     def authenticate(self, request):
         token = request.headers.get("Authorization")
         if not token:

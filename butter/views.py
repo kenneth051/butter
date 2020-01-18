@@ -10,11 +10,13 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 
 
 class UserView(ModelViewSet):
+    """view for users"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
 
 class SignAgreementView(APIView):
+    """view to sign agreement"""
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
 
@@ -28,6 +30,7 @@ class SignAgreementView(APIView):
 
 
 class AgreementView(APIView):
+    """Agreement view to get both signed and un signed agreement"""
     renderer_classes = (StaticHTMLRenderer, )
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
