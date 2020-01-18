@@ -51,3 +51,8 @@ send the request, then you will see the html agreement you have signed  displaye
 
 make sure the token is correct and you paste it in fully without any other word appended to it.
 
+To run the sample tests
+-----------------------
+Run the command `python3 manage.py test`
+
+
