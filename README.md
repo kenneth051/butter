@@ -51,6 +51,8 @@ send the request, then you will see the html agreement you have signed  displaye
 
 make sure the token is correct and you paste it in fully without any other word appended to it.
 
+To get all signed agreements go to the endpoint `http://127.0.0.1:8000/butter/agreements/` 
+
 To run the sample tests
 -----------------------
 Run the command `python3 manage.py test`
