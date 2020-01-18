@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.renderers import StaticHTMLRenderer
-from butter.serializers import UserSerializer, UserTermsAgreement
+from butter.serializers import UserSerializer
 from butter.models import User, UserTermsAgreement
 from rest_framework.views import APIView
 from butter.constants import agreement
