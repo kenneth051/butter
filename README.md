@@ -21,6 +21,8 @@ install pipenv by running the command `pip3 install pipenv` to create ana enviro
 
 in the pipenv enviroment install the requirements by running the command `pip install -r requirements.txt`
 
+make sure you have postgres installed.
+
 make migrations by running the command `python manage.py migrate`
 
 start the app by running the command `python manage.py runserver`
