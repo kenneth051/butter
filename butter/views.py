@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.renderers import StaticHTMLRenderer
-from butter.serializers import UserSerializer
+from butter.serializers import UserSerializer, AgreementSerializer
 from butter.models import User, UserTermsAgreement
 from rest_framework.views import APIView
 from butter.constants import agreement
@@ -40,3 +40,8 @@ class AgreementView(APIView):
             user_agreement= UserTermsAgreement.objects.get(signed_user=request.user) 
             data=user_agreement.signed_agreement           
         return Response(data)
+    
+class UserAgreementsView(ModelViewSet):
+    serializer_class = AgreementSerializer
+    queryset = UserTermsAgreement.objects.all()
+    http_method_names = ["get"]

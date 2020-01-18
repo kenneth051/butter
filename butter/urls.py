@@ -1,7 +1,7 @@
 from django.conf.urls import include
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from butter.views import UserView, AgreementView, SignAgreementView
+from butter.views import UserView, AgreementView, SignAgreementView, UserAgreementsView
 
 
 class OptionalSlashRouter(SimpleRouter):
@@ -13,6 +13,7 @@ class OptionalSlashRouter(SimpleRouter):
 router = OptionalSlashRouter()
 
 router.register("users", UserView, "users")
+router.register("agreements", UserAgreementsView, "agreements")
 
 urlpatterns = [
     path('agreement/', AgreementView.as_view()),
