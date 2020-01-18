@@ -1,22 +1,20 @@
 version: "3"
 services:
   database:
-    image: "postgres"
+    image: postgres
+    restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mydb
-    ports:
-      - "5432:5432"
+      POSTGRES_USER: butter_user
+      POSTGRES_PASSWORD: butter_password
+      POSTGRES_DB: butter_db
   butter:
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      SECRET_KEY: "QWErty#@!"
-      DATABASE_URL: "postgres://art_user:art_password@database/art_backend"
+      DATABASE_URL: "postgres://butter_user:butter_password@database/butter_db"
     ports:
       - "8000:8000"
-    entrypoint: ./docker-entry.sh
+    entrypoint: ./docker-entrypoint.sh
     depends_on:
       - database
