@@ -49,5 +49,5 @@ after go to the endpoint `http://127.0.0.1:8000/butter/agreement/`.
 This time pass in the token you have recieved after signing the agreement.pass this token under the Headers' tab on postman using a key `Authorization`.
 send the request, then you will see the html agreement you have signed  displayed in html.
 
-make sure the token is correct and you paste it in fully.
+make sure the token is correct and you paste it in fully without any other word appended to it.
 
